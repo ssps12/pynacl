@@ -59,12 +59,8 @@ install: .travis/install.sh
 
 script: 
   - LIBSODIUM_MAKE_ARGS="-j$(nproc)" tox
-  - if [[ "$BUILD_WHEEL" == "true" ]]; then
-      cibuildwheel --output-dir dist
-    fi
-  - if [[ "$BUILD_SDIST" == "true" ]]; then
-      python setup.py sdist
-    fi
+  - cibuildwheel --output-dir dist
+  - python setup.py sdist
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
