@@ -33,7 +33,11 @@ matrix:
         - python: 3.8
           env: TOXENV=meta
         - python: 3.8
-          env: TOXENV=py38 SODIUM_INSTALL=bundled
+          env: 
+          - TOXENV=py38 
+          - SODIUM_INSTALL=bundled
+          - BUILD_SDIST=true
+          - BUILD_WHEEL=true
           dist: focal
           arch: arm64-graviton2
           virt: lxd
@@ -53,7 +57,14 @@ matrix:
 
 install: .travis/install.sh
 
-script: LIBSODIUM_MAKE_ARGS="-j$(nproc)" tox
+script: 
+  - LIBSODIUM_MAKE_ARGS="-j$(nproc)" tox
+  - if [[ $BUILD_WHEEL == 'true' ]]; then
+      cibuildwheel --output-dir dist
+    fi
+  - if [[ $BUILD_SDIST == 'true' ]]; then
+      python setup.py sdist
+    fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
