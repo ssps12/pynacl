@@ -20,3 +20,7 @@ if [[ $SODIUM_INSTALL == 'system' ]]; then
 fi
 
 pip install -U tox coverage
+
+if [[ $BUILD_WHEEL == 'true' ]]; then
+    pip install wheel cibuildwheel==1.6.4
+fi
