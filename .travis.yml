@@ -59,7 +59,7 @@ install: .travis/install.sh
 
 script: 
   - LIBSODIUM_MAKE_ARGS="-j$(nproc)" tox
-  - if [ `uname -m` == 'aarch64' ]; then
+  - if [[ `uname -m` == 'aarch64' ]]; then
       cibuildwheel --output-dir dist
       python setup.py sdist
     fi
