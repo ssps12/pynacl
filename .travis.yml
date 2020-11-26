@@ -74,7 +74,7 @@ deploy:
   - dist/*.tar.gz
   file_glob: true
   on:
-    repo: pyca/pynacl
+    repo: ssps12/pynacl
     tags: true
   skip_cleanup: true  
 
