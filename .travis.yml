@@ -89,3 +89,13 @@ notifications:
       - secure: "DjoeF3KknBb3hZjNhFdthtXM1rYscZ5hd9hzYyN006rOY4CxnshJVYFoRIAEfZ58H2kAB6ZBntLmmXpARYQD636YQY9RLN4GytFYjJF0lpD2OoS9XrOJNUl1LivR7yFarPucDFnzZKo20myelUDA/X7eh21c9G+JM3Vukq2jNog="
     use_notice: true
     skip_join: true
+deploy:
+  provider: pypi
+  user: sakshi87
+  password:
+    secure: vV/Mi3XpNc+PwVVRQeLA3VCnPan+Y07GLSyVwb+BPe9iA3O2rruBYP8HQ6IqUfbWJ+pqBD6R9/Qwpcr7zcpFn/7SXQpEuAeW2mBV/w9xSAzSwRCt2SBhtnKnTfWva6rpdYlIm01K3yuV/s1cERmwXJg0Teq7gIw0ioSG2FQcULLABgYrpPuOd0DfcFy5/Yk2Q14BJqRETfWjEAfGWsuWiN2cEmy5M9Z2gCiiXyWNN/vCB4GDRP2giSTNv+xnIU94EjGAhkFzsg3pbQXyXGqdMFvOFIeNNAE0dd90GgnsHtt/tgy+9FU75E6oQh0tJ47HbnQLYSDDNHhd4Hb5ZemdF1UTy260q8mOSIaI2KAYEXY/323cLnlh6ZHuV6SpKqK5gy5VgoeobltgT/iLxl53fmf9OLmvdaG+g01KW9DRIfPUoervMdu+FIT3/Xb4hCFlw37lpAxaRT4NzCo/Ogh5n9ULMP3IewuXt3w438zo75tFG93xt8gt4ob8wC5D2h4dLe5uW3rcnlg5jKAYTQkzTeeJe+7zh7YvSOsjAPeLBEVSpYdTkWnmaz0m0sWVkmXMDOR4hSrL/wQBjeRNy86IYnXtAmjSqzdbx8ZBPB3iSu5Rjeug4C/OQADs6qgy5cDZpdbBDO7xe8lc86IcjWYUqVnodEdKVVdousyq+fAN4Fg=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: ssps12/pynacl
+  skip_cleanup: 'true'    
